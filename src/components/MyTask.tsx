@@ -7,7 +7,7 @@ function MyTask() {
 interface TaskData {
   title: string;
   description: string;
-  file: string | null;
+  file: string ;
   priority: string;
   status: string;
   date: string
@@ -21,7 +21,7 @@ const updateTaskStatus = (index: number) => {
   localStorage.setItem("myTasks", JSON.stringify(updatedTasks));
 };
 
-function UpdateTaskButton({ onClick }) {
+function UpdateTaskButton({onClick}:{ onClick: () => void }) {
   return (
     <Button onClick={onClick} sx={{ backgroundColor: 'black', color: 'white' }}>
       Update Status
