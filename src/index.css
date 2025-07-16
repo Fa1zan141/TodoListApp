@@ -1,0 +1,15 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html, body {
+  overflow-x: hidden; 
+  overscroll-behavior-x: none;
+  touch-action: pan-y; 
+}
+
+img, svg {
+  user-drag: none;
+  -webkit-user-drag: none;
+}
