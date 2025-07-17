@@ -214,6 +214,10 @@ function Dashboard() {
               <Typography variant="h6" sx={{ mb: 2 }}>
                 Task Status
               </Typography>
+              <Box sx={{display:'flex', gap:"20px", justifyContent:"center", alignItems:"center"}}>
+                <Box sx={{display:'flex', gap:"10px"}}><Box sx={{backgroundColor:"orange", width:"20px", height:"20px", borderRadius:'100PX' }}></Box>Pending</Box>
+                 <Box sx={{display:'flex', gap:"10px"}}><Box sx={{backgroundColor:"green", width:"20px", height:"20px", borderRadius:'100PX' }}></Box>Completed</Box>
+              </Box>
               <Card sx={{ backgroundColor:"white", display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: 2 }}>
               <CircularProgressWithLabel value={completedPercent} color="green" />
               <CircularProgressWithLabel value={pendingPercent} color="orange" />
@@ -250,6 +254,7 @@ export default Dashboard;
 
 const CircularProgressWithLabel = ({ value, color }: { value: number; color: string }) => {
   return (
+    <Box>
     <Box position="relative" display="inline-flex" margin={2}>
       <CircularProgress
         variant="determinate"
@@ -274,6 +279,7 @@ const CircularProgressWithLabel = ({ value, color }: { value: number; color: str
           {`${Math.round(value)}%`}
         </Typography>
       </Box>
+    </Box>
     </Box>
   );
 };
