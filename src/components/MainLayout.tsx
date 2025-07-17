@@ -112,7 +112,7 @@ const drawer = (
             Todo List App
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
-          <Typography sx={{fontSize:{xs:"12px"}, width:"70%", fontWeight:600}}>
+          <Typography sx={{fontSize:{xs:"12px", md:"16px"}, width:{xs:"70%", md:"30%"}, fontWeight:600}}>
             {formattedDateTime}
           </Typography>
         </Toolbar>

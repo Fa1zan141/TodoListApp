@@ -119,11 +119,22 @@ function Dashboard() {
           <Grid size={12}>
             <Card sx={{ p: 2, backgroundColor: "white", color: "black" }}>
               <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
-                <Typography variant="h6">Todo</Typography>
+                <Typography variant="h6">Todo List Application</Typography>
                 <Button onClick={handleOpen} variant="outlined" sx={{ color: "black" }}>
                   + Add Task
                 </Button>
               </Box>
+              <Typography variant="h6" sx={{ mb: 2 }}>
+                Task Status
+              </Typography>
+              <Box sx={{display:'flex', gap:"20px", justifyContent:"center"}}>
+                <Box sx={{display:'flex', gap:"10px"}}><Box sx={{backgroundColor:"orange", width:"20px", height:"20px", borderRadius:'100PX' }}></Box>Pending</Box>
+                 <Box sx={{display:'flex', gap:"10px"}}><Box sx={{backgroundColor:"green", width:"20px", height:"20px", borderRadius:'100PX' }}></Box>Completed</Box>
+              </Box>
+              <Card sx={{ backgroundColor:"white", display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: 2, marginBottom:'20px' }}>
+              <CircularProgressWithLabel value={completedPercent} color="green" />
+              <CircularProgressWithLabel value={pendingPercent} color="orange" />
+              </Card>
 
               <Modal open={open} onClose={handleClose}>
                 <Box sx={style}>
@@ -174,6 +185,7 @@ function Dashboard() {
               </Modal>
 
               <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <Typography variant="h6">My Tasks</Typography>
                 {tasks.length === 0 ? (
                   <Typography>No tasks found.</Typography>
                 ) : (
@@ -211,18 +223,6 @@ function Dashboard() {
 
           <Grid size={12}>
             <Card sx={{ p: 2, backgroundColor: "white", color: "black" }}>
-              <Typography variant="h6" sx={{ mb: 2 }}>
-                Task Status
-              </Typography>
-              <Box sx={{display:'flex', gap:"20px", justifyContent:"center", alignItems:"center"}}>
-                <Box sx={{display:'flex', gap:"10px"}}><Box sx={{backgroundColor:"orange", width:"20px", height:"20px", borderRadius:'100PX' }}></Box>Pending</Box>
-                 <Box sx={{display:'flex', gap:"10px"}}><Box sx={{backgroundColor:"green", width:"20px", height:"20px", borderRadius:'100PX' }}></Box>Completed</Box>
-              </Box>
-              <Card sx={{ backgroundColor:"white", display: "flex", justifyContent: "space-around", flexWrap: "wrap", gap: 2 }}>
-              <CircularProgressWithLabel value={completedPercent} color="green" />
-              <CircularProgressWithLabel value={pendingPercent} color="orange" />
-              </Card>
-
               <Typography variant="h5" fontWeight={700} sx={{ mt: 3, mb: 2 }}>Completed Tasks</Typography>
               {tasks.filter((task) => task.status === "Completed").length > 0 ? (
                 tasks
